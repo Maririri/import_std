@@ -12,7 +12,7 @@ set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD
 # C++ needs to be enabled.
 project(import_std LANGUAGES CXX)
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/opt/homebrew/Cellar/llvm/19.1.7_1/lib/c++")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/opt/homebrew/Cellar/llvm/20.1.2/lib/c++")
 
 # Tell CMake that we explicitly want `import std`. This will initialize the
 # property on all targets declared after this to 1
@@ -27,7 +27,7 @@ target_sources(uses_std
 
 # Add the required compiler flag for Clang module support
 target_compile_options(uses_std PRIVATE
-        -fprebuilt-module-path=/opt/homebrew/Cellar/llvm/19.1.7_1/lib/c++)
+        -fprebuilt-module-path=/opt/homebrew/Cellar/llvm/20.1.2/lib/c++)
 
 # Tell CMake we're using C++23 but only C++20 is needed to consume it.
 target_compile_features(uses_std
