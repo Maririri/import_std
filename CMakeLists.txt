@@ -35,3 +35,18 @@ target_sources(main
         PRIVATE
         main.cxx)
 target_link_libraries(main PRIVATE uses_std)
+
+add_library(greeting)
+target_sources(greeting
+        PUBLIC
+        FILE_SET CXX_MODULES FILES
+        greeting.ixx
+)
+target_sources(greeting
+        PRIVATE
+        greeting.cpp
+)
+target_compile_features(greeting PUBLIC cxx_std_23)
+
+add_executable(greeting_main greeting_main.cpp)
+target_link_libraries(greeting_main PRIVATE greeting)
